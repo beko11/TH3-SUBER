@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd $HOME/x7_bot
+cd $HOME/TH3-SUBER
 
 install() {
 	    cd tg
@@ -67,8 +67,8 @@ fi
 #  --permanent-peer-ids                 use permanent peer ids
 #			#			#			#			#			#			#			#			#			#
 #Example To launch with second profile :
-# ./x7_bot.sh -p second-profile
+# ./TH3-SUBER.sh -p second-profile
 
 #			  OR
 
-# ./x7_bot.sh --profile second-profile
+# ./TH3-SUBER.sh --profile second-profile
