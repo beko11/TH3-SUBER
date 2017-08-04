@@ -1,8 +1,7 @@
 tdcli = dofile('./tg/tdcli.lua')
 serpent = (loadfile "./libs/serpent.lua")()
 feedparser = (loadfile "./libs/feedparser.lua")()
-our_id = 275357404 -- Put Here Your Bot ID
---حط ايدي بوتك
+our_id = 123456789 --حط ايدي بوتك
 URL = require "socket.url"
 http = require "socket.http"
 https = require "ssl.https"
@@ -78,30 +77,26 @@ function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
     enabled_plugins = {
-    "banhammer",
-    "groupmanager",
+    "ban",
+    "suber",
     "msg-checks",
-    "plugins",
     "tools",
     "me",
-    "pohot",
+    "fshar",
     "replay",			
  },
-    sudo_users = {157059515},
+    sudo_users = {244252169},
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[🔹مطورين البوت🔹      
-           🔹◐◐◐◐◐◐✹◑◑◑◑◑◑🔹
-           💯DeV : @AhMaD_X7
-           💯DeV : @dev_iraq1
-           🔹◐◐◐◐◐◐✹◑◑◑◑◑◑🔹  
-  🔸بوت تواصل للمحضورين🔸
-           🔹◐◐◐◐◐◐✹◑◑◑◑◑◑🔹
-           💯DeV : @tawasla7mad_bot
-           💯DeV : @jokr1996_bot
-           🔹◐◐◐◐◐◐✹◑◑◑◑◑◑🔹
-                 B❂T x7
+    info_text = [[🔹 قائمه مطورين البوت 🔹
+
+ᗫЄᏉ ; @D_1_T
+
+🔸➖➖➖➖➖➖➖➖➖🔸
+Ᏸ๑Ꮏ ͲᏔᵴℓ ; @BEKO_TVBOT
+
+           ͲḦ3₷ǛᏰЄᎡ
 ]],
   }
   serialize_to_file(config, './data/config.lua')
@@ -493,7 +488,7 @@ local lang = redis:get(hash)
   if not lang then
     return '_Group is not added_'
 else
-    return 'البوت غير مفعل 🚫'
+    return '🎈- البوت غير مفعل 🔹❎'
    end
   end
   -- determine if table is empty
@@ -501,13 +496,13 @@ else
      if not lang then
 					return "_No_ *banned* _users in this group_"
    else
-					return "*لايوجد محظورين في المجموعة 💡*"
+					return "*🎈- لايوجد محظورين في المجموعه 🔹❎*"
               end
 				end
        if not lang then
    message = '*List of banned users :*\n'
          else
-   message = '*قائمة المحظورين في المجموعة :*\n'
+   message = '*🎈- قائمه محظورين المجموعه〽️🔹 :*\n'
      end
   for k,v in pairs(data[tostring(chat_id)]['banned']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
@@ -525,7 +520,7 @@ local lang = redis:get(hash)
   if not lang then
     return '_Group is not added_'
 else
-    return 'البوت غير مفعل 🚫'
+    return '🎈- البوت غير مفعل 🔹❎'
    end
   end
   -- determine if table is empty
@@ -533,13 +528,13 @@ else
         if not lang then
 					return "*No silent users in this group*"
    else
-					return "*قائمة الكتم فارغه 💡*"
+					return "*🎈- لايوجد مكتومين في المجموعه 🔹❎*"
              end
 				end
       if not lang then
    message = '*List of silent users :*\n'
        else
-   message = '_قائمة المكتومين :_\n'
+   message = '_🎈- قائمه المكتومين في المجموعه〽️🔹 :_\n'
     end
   for k,v in pairs(data[tostring(chat_id)]['is_silent_users']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
@@ -561,13 +556,13 @@ local lang = redis:get(hash)
     if not lang then
 					return "_No_ *globally banned* _users available_"
    else
-					return "*قائمة الحظر العام فارغه 🚫💡*"
+					return "*🎈- لايوجد محظورين عام في البوت 🔹❎*"
              end
 				end
         if not lang then
    message = '*List of globally banned users :*\n'
    else
-   message = '_قائمة الحظر العام_\n'
+   message = '_🎈- قائمه المحظورين عام في البوت 〽️🔹_\n'
    end
   for k,v in pairs(data['gban_users']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
@@ -588,7 +583,7 @@ local lang = redis:get(hash)
   if not lang then
     return '_Group is not added_'
 else
-    return 'البوت غير مفعل 🚫'
+    return '🎈- البوت غير مفعل 🔹❎'
    end
   end
   -- determine if table is empty
@@ -596,7 +591,7 @@ else
       if not lang then
     return "*Filtered words list is empty*"
       else
-    return "*قائمة الكلمات الممنوعة فارغه* 💡"
+    return "*🎈- لايوجد كلمات ممنوعه في المجموعه 🔹❎*"
      end
   end
   if not data[tostring(msg.chat_id_)]['filterlist'] then
@@ -606,7 +601,7 @@ else
       if not lang then
        filterlist = '*List of filtered words :*\n'
          else
-       filterlist = '* قائمة الكلمات الممنوعة : *\n'
+       filterlist = '* 🎈- قائمه الكلمات الممنوعه في المجموعه 〽️🔹 : *\n'
     end
  local i = 1
    for k,v in pairs(data[tostring(msg.chat_id_)]['filterlist']) do
